@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'travel_buddy2/style.css' %}">
+    </head>
+    <body>
+        <p class="nav"><a class="nav" href="/travels">Home</a> | <a href="/logout">Logout</a></p>       
+        <h2>{{trip.destination.name}}</h2>
+        <h4>Planned by: {{trip.user.first_name}} {{trip.user.last_name}}</h4>
+        <h4>Description: {{trip.desc}}</h4>
+        <h4>Travel Date From: {{trip.leave_date}}</h4>
+        <h4>Travel Date To: {{trip.return_date}}</h4>
+        <hr>
+        <h2>Other users' joining the trip</h2>
+        {% for t in joined %}
+            <h4>{{t.first_name}} {{t.last_name}}</h4>                
+        {% endfor %}
+    </body>
+</html>
